@@ -6,6 +6,15 @@ from django.db import IntegrityError
 from django.db import transaction
 from django.utils import timezone
 from decimal import Decimal
+krom crm.schema import Query as CRMQuery, Mutation as CRMMutation
+
+class Query(CRMQuery, graphene.ObjectType):
+    pass
+
+class Mutation(CRMMutation, graphene.ObjectType):
+    pass
+
+schema = graphene.Schema(query=Query, mutation=Mutation)
 
 
 
